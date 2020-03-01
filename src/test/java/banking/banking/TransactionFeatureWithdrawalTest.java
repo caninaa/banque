@@ -19,7 +19,7 @@ import cucumber.api.java.en.When;
 import junit.textui.TestRunner;
 
 
-public class TransactionFeatureWithdrawalTest extends TestRunner {
+public class TransactionFeatureWithdrawalTest extends CucumberStepDeffinition {
 	
 	@Autowired
 	private CompteRepository repo; 

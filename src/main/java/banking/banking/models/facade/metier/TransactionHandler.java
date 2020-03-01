@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import banking.banking.models.Compte;
+import banking.banking.utils.SoldeNegatiofExceptionException;
 @Service
 public class TransactionHandler {
 	@Autowired
@@ -43,7 +44,7 @@ public class TransactionHandler {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public void retrait(double montant)
+	public void retrait(double montant) throws SoldeNegatiofExceptionException
 	{
 		w.transaction(montant, c);
 	}

@@ -25,6 +25,7 @@ import banking.banking.models.Compte;
 import banking.banking.models.facade.metier.TransactionHandler;
 import banking.banking.service.CompteService;
 import banking.banking.utils.CompteNotFoundException;
+import banking.banking.utils.SoldeNegatiofExceptionException;
 
 @RestController
 @RequestMapping(value = "/api/transaction/", produces = "application/hal+json")
@@ -75,8 +76,14 @@ public class TrasactionControler {
 			tr.setC(c);
 			if (type == 'd')
 				tr.deposit(montant);
-			else
-				tr.retrait(montant);
+			else {
+				try {
+					tr.retrait(montant);
+				} catch (SoldeNegatiofExceptionException e) {
+					throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Solde négatif");
+
+				}
+				}
 			return new ResponseEntity<>("depot reussi", HttpStatus.OK);
 		}
 		return new ResponseEntity<>("un probléme!", HttpStatus.NOT_MODIFIED);

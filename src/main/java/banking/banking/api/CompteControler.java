@@ -42,7 +42,8 @@ public class CompteControler {
 
 	/**
 	 * rechercher l'ensemble des comptes.
-	 * @return
+	 * 
+	 * @return tout les comptes.
 	 */
 	@GetMapping
 	public CollectionModel<EntityModel<Compte>> all() {
@@ -52,11 +53,13 @@ public class CompteControler {
 
 		return new CollectionModel<>(comptes, linkTo(methodOn(CompteControler.class).all()).withSelfRel());
 	}
-/**
- *  rechercher compte
- * @param id  
- * @return le compte concérné
- */
+
+	/**
+	 * rechercher compte
+	 * 
+	 * @param id
+	 * @return le compte concérné
+	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<Compte> one(@PathVariable Long id) {
 
@@ -68,7 +71,11 @@ public class CompteControler {
 		}
 
 	}
-
+/**
+ * creer un compte.
+ * @param compte compte à créer.
+ * @return
+ */
 	// default JSR 380
 	@PostMapping
 	public ResponseEntity<Compte> create(@Valid @RequestBody Compte compte) {
@@ -77,6 +84,12 @@ public class CompteControler {
 		return ResponseEntity.ok(compte);
 	}
 
+
+/**
+* creer un compte.
+* @param compte compte à Supprimer.
+* @return
+*/
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") final long id) {
 		try {
