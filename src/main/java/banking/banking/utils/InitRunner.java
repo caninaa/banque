@@ -12,7 +12,11 @@ import org.springframework.stereotype.Component;
 import banking.banking.models.Client;
 import banking.banking.models.Compte;
 import banking.banking.repositories.CompteRepository;
-
+/**
+ * init Runner pour initialiser un jdd.
+ *  * @author macanina
+ *
+ */
 @Component
 public class InitRunner implements ApplicationRunner {
     private static final Logger logger = LoggerFactory.getLogger(InitRunner.class);

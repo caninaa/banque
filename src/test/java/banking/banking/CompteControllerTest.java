@@ -16,12 +16,10 @@ import banking.banking.api.CompteControler;
 import banking.banking.models.Compte;
 import banking.banking.repositories.CompteRepository;
 
-@ExtendWith(SpringExtension.class)
+
 @SpringBootTest
 public class CompteControllerTest {
 
-	@Autowired
-	private CompteRepository repo;
 	@Autowired
 	private CompteControler ctrl;
 

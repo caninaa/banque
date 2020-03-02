@@ -9,27 +9,36 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.mock.*;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import banking.banking.models.Compte;
+import banking.banking.repositories.CompteRepository;
 import banking.banking.service.CompteService;
 import banking.banking.service.CompteServiceImpl;
-
-@SpringBootTest
+/**
+ * Tester les fonctionalité de base de compte.
+ * @author macanina
+ *
+ */
+@RunWith(MockitoJUnitRunner.class)
 public class BankingMockTest {
 
-	@Mock
+	@InjectMocks
 	private CompteService service = new CompteServiceImpl();
 
+	@Mock
+	private CompteRepository repo;
 	@BeforeEach
 	void setMock() {
 		Compte c = new Compte("cpt ", 99d);
 		List<Compte> lc = new ArrayList<Compte>();
 		lc.add(c);
-		Mockito.when(service.listerComptes()).thenReturn(lc);
+		Mockito.when(repo.findAll()).thenReturn(lc);
 
 	}
 

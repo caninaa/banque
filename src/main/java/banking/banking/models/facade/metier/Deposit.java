@@ -9,12 +9,20 @@ import org.springframework.stereotype.Component;
 import banking.banking.models.Compte;
 import banking.banking.models.TransactionDB;
 import banking.banking.repositories.CompteRepository;
-
+/**
+ * operation de dépot.
+ * @author macanina
+ *
+ */
 @Component
 public class Deposit implements Operation {
 	@Autowired
 	private CompteRepository repo;
-
+/**
+ * @param montant
+ * @param compte concérne
+ * 
+ */
 	@Override
 	public void transaction(Double d, Compte cpt) {
 		TransactionDB t = new TransactionDB();

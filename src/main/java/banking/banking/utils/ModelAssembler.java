@@ -10,8 +10,22 @@ import banking.banking.models.Compte;
 
 @Component
 
+/**
+ * classe utilitaire pour géénérer les liens pour les normes hateoas
+ * @author macanina
+ *
+ */
+
+
+
 public class ModelAssembler implements RepresentationModelAssembler<Compte, EntityModel<Compte>> {
-	  @Override
+	/**/
+	/**
+	 * @param Compte conccerné
+	 * @return EntityModel formaté.
+	 */
+	
+	@Override
 	  public EntityModel<Compte> toModel(Compte compte) {
 
 	    return new EntityModel<>(compte,

@@ -3,7 +3,7 @@ package banking.banking.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import banking.banking.models.Compte;
 import banking.banking.models.TransactionDB;
@@ -16,7 +16,7 @@ import banking.banking.models.TransactionDB;
  * @author macanina
  *
  */
-@Repository
+
 public interface CompteService {
 
 	/**/

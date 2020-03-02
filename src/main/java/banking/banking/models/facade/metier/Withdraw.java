@@ -10,11 +10,20 @@ import banking.banking.models.Compte;
 import banking.banking.models.TransactionDB;
 import banking.banking.repositories.CompteRepository;
 import banking.banking.utils.SoldeNegatiofExceptionException;
+/**
+ * operation de retrait.
+ * @author macanina
+ *
+ */
 @Component
 public class Withdraw implements Operation {
 	@Autowired
 	private CompteRepository repo;
-
+	/**
+	 * @param montant
+	 * @param compte concérne
+	 * 
+	 */
 	@Override
 	public void transaction(Double d,Compte cpt) throws SoldeNegatiofExceptionException {
 		TransactionDB t = new TransactionDB();

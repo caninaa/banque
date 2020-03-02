@@ -8,12 +8,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author macanina
+ *
+ */
 @Entity
 @Table(name = "TransactionDB")
 public class TransactionDB {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	
 	private char type;
 	private Double montantTransaction ;
 	private Date dateTransaction;
